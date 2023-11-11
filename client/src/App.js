@@ -1,6 +1,8 @@
 import './app.css';
 import Nav from './components/Nav/Nav';
 import Reports from './components/Reports/Reports';
+import NewReport from './components/NewReport/NewReport';
+
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
       </div>
       <div className='right'>
         <Reports/>
+        {/* <NewReport/> */}
       </div>
     </div>
   );

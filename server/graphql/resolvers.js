@@ -25,12 +25,39 @@ export const resolvers = {
             return prisma.report.findMany();
         },
         allInjuries(){
-            return prisma.injury.findMany();
+            return prisma.injury.findMany(); 
         }
     },
     Mutation:{
-        createUser: (_, {username, password}) =>{
-            return prisma.user.create({data: {username, password}})
-        }
-    }
-}
+        createUser: async(_, {username, password}) =>{
+            const user = await prisma.user.create({
+                data:{
+                    username,
+                    password,
+                },
+            });
+            return user;
+        },
+        createReport : async(_, {reporterName, injuryDateTime, userId}) =>{
+           const report = await prisma.report.create({
+            data:{
+                reporterName,
+                injuryDateTime,
+                userId
+            },
+           });
+           return id;
+        },
+        createInjury : async(_, {bodyArea, description, reportId}) =>{
+            const injury = await prisma.injury.create({
+                data:{
+                    bodyArea,
+                    description,
+                    reportId,
+                },
+            });
+            return injury;
+        },
+    },
+};
+

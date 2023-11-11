@@ -15,8 +15,8 @@ export const typeDefs =`#graphql
   type Report{
     id: ID!
     reporterName: String!
-    injuryDateTime: DateTime!
-    reportDateTime: DateTime!
+    injuryDateTime: String!
+    reportDateTime: String!
     userId: ID!
     user: User!
     injuries: [Injury!]!
@@ -41,7 +41,7 @@ export const typeDefs =`#graphql
 
   type Mutation{
     createUser(username: String!, password: String!): User
-    createReport(reporterName: String!, injuryDateTime: DateTime!, userId: ID!): Report
+    createReport(reporterName: String!, injuryDateTime: String!, userId: ID!): ID
     createInjury(bodyArea: String!, description: String, reportId: ID!): Injury
   }
    
